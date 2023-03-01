@@ -15,6 +15,13 @@ export class PostListComponent implements OnInit{
   ){}
 
   ngOnInit(): void {
-    this.posts = this.apiService.getPosts();
+    this.apiService.getPosts().subscribe(
+      data =>{
+        this.posts = data;
+      },
+      error => {
+        console.log(error);
+      }
+    );
   }
 }
