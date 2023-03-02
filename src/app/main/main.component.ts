@@ -29,6 +29,7 @@ export class MainComponent implements OnInit{
 
   selectPost(post:any){
    this.selectedPost = post;
+   console.log('Selected', this.selectedPost)
   }
 
 }
