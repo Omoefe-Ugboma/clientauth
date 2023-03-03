@@ -10,4 +10,12 @@
     <p>{{post.description}}</p>
     <!-- <fa name="cog" animation="spin"></fa> -->
     <!-- {{post.avg_ratings}}  -->
+
+    <div id="rate-container">
+        <h2>Rate it !!!</h2>
+        <i *ngFor="let rate of [1,2,3,4,5]" class="fas fa-star" (mouseenter)="rateHover(rate)"
+        (mouseleave)="rateHovered = 0" (click)="rateClicked(rate)"
+        [ngClass]="{'purple':rateHovered >= rate}"
+        ></i>
+    </div>
 </div>
