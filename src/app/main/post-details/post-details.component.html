@@ -1,7 +1,13 @@
 
 <div *ngIf="post">
     <h1>{{post.title}}</h1>
+    <i class="fas fa-star" [ngClass]="{'orange':post.avg_ratings > 0}"></i>
+    <i class="fas fa-star" [ngClass]="{'orange':post.avg_ratings > 1}"></i>
+    <i class="fas fa-star" [ngClass]="{'orange':post.avg_ratings > 2}"></i>
+    <i class="fas fa-star" [ngClass]="{'orange':post.avg_ratings > 3}"></i>
+    <i class="fas fa-star" [ngClass]="{'orange':post.avg_ratings > 4}"></i>
+    ({{post.no_of_rating}})
     <p>{{post.description}}</p>
-
-    {{post.avg_ratings}} ({{post.no_of_rating}})
+    <!-- <fa name="cog" animation="spin"></fa> -->
+    <!-- {{post.avg_ratings}}  -->
 </div>
