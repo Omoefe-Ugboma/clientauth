@@ -11,6 +11,7 @@ export class MainComponent implements OnInit{
   posts: any = [];
 
   selectedPost = null;
+  editedPost = null;
 
   constructor(
     private apiService:ApiService
