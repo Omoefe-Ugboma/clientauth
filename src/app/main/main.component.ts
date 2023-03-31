@@ -43,4 +43,8 @@ export class MainComponent implements OnInit{
    this.selectedPost = null;
   }
 
+  deletedPost(post:any){
+    console.log('delete', post.title)
+  }
+
 }

@@ -1,1 +1,8 @@
-<p>post-form works!</p>
+<form [formGroup]="postForm" (ngSubmit)="saveForm()">
+    <label>Post Title</label><br>
+    <input type="text" formControlName="title"/><br>
+
+    <label>Post Description</label><br>
+    <textarea type="text" formControlName="description"></textarea><br>
+    <button type="submit">SAVE</button>
+</form>

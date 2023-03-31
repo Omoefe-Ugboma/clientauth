@@ -12,6 +12,7 @@ export class PostListComponent implements OnInit{
   @Output() selectedPost = new EventEmitter<any>();
   @Output() editedPost = new EventEmitter<any>();
   @Output() createNewPost = new EventEmitter();
+  @Output() deletedPost = new EventEmitter<any>();
 
   constructor(
     
@@ -29,6 +30,9 @@ export class PostListComponent implements OnInit{
 
   newPost(){
     this.createNewPost.emit();
+  }
+  deletePost(post:any){
+    this.deletedPost.emit(post);
   }
 
 }
