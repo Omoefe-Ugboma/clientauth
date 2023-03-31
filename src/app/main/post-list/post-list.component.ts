@@ -9,7 +9,8 @@ import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 export class PostListComponent implements OnInit{
    
   @Input() posts: any = []; 
-  @Output() selectedPost = new EventEmitter();
+  @Output() selectedPost = new EventEmitter<any>();
+  @Output() editedPost = new EventEmitter<any>();
 
   constructor(
     
@@ -22,7 +23,7 @@ export class PostListComponent implements OnInit{
   }
 
   editPost(post:any){
-    this.selectedPost.emit(post);
+    this.editedPost.emit(post);
   }
 
 }

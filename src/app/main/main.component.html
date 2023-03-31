@@ -1,7 +1,8 @@
 <div class="layout">
-    <app-post-list [posts]="posts" (selectedPost)="selectPost($event)"></app-post-list>
+    <app-post-list [posts]="posts" (selectedPost)="selectPost($event)"
+    (editedPost)="editPost($event)"></app-post-list>
     <div>
         <app-post-details [post]="this.selectedPost" (updatePost)="selectPost($event)"></app-post-details>
-        <app-post-details *ngIf="editedPost"></app-post-details>
+        <app-post-details *ngIf="editedPost" (post)="editedPost"></app-post-details>
     </div>
 </div>
