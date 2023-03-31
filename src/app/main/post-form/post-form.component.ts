@@ -7,13 +7,15 @@ import { FormGroup, FormControl} from '@angular/forms'
   styleUrls: ['./post-form.component.css']
 })
 export class PostFormComponent implements OnInit{
+  postForm: any;
+  @Input() set post(val:any){
+    this.postForm = new FormGroup({
+      title: new FormControl(val.title),
+      description: new FormControl(val.description)
+     });
+  };
 
-  @Input() post:any;
-
-  postForm = new FormGroup({
-   title: new FormControl(''),
-   description: new FormControl('')
-  });
+ 
 
   constructor(){}
 
