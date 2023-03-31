@@ -21,4 +21,8 @@ export class PostListComponent implements OnInit{
     this.selectedPost.emit(post);
   }
 
+  editPost(post:any){
+    this.selectedPost.emit(post);
+  }
+
 }
