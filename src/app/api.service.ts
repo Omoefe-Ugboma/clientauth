@@ -28,6 +28,12 @@ export class ApiService {
     return this.httpClient.get(`${this.baseUrl}${id}/`, {headers: this.headers}); 
     // return this._posts;
   }
+
+  createPost(title:string, description:string){
+    const body = JSON.stringify({title, description});
+    return this.httpClient.post(`${this.baseUrl}`,body,{headers: this.headers}); 
+    // return this._posts;
+  }
    
   ratePost(rate: number, postId: number){
     const body = JSON.stringify({stars:rate});
