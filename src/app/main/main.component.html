@@ -3,6 +3,6 @@
     (editedPost)="editPost($event)"></app-post-list>
     <div>
         <app-post-details [post]="this.selectedPost" (updatePost)="selectPost($event)"></app-post-details>
-        <app-post-details *ngIf="editedPost" (post)="editedPost"></app-post-details>
+        <app-post-form *ngIf="editedPost" (post)="editedPost"></app-post-form>
     </div>
 </div>

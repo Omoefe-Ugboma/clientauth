@@ -30,12 +30,12 @@ export class MainComponent implements OnInit{
 
   selectPost(post:any){
    this.selectedPost = post;
-   console.log('Selected', this.selectedPost)
+   this.editedPost = null;
   }
 
   editPost(post:any){
    this.editedPost = post;
-   console.log('Selected', this.selectedPost)
+   this.selectedPost = null;
   }
 
 }
