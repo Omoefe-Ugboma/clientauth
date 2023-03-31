@@ -34,6 +34,17 @@ export class ApiService {
     return this.httpClient.post(`${this.baseUrl}`,body,{headers: this.headers}); 
     // return this._posts;
   }
+
+  updatePost(id:number, title:string, description:string){
+    const body = JSON.stringify({title, description});
+    return this.httpClient.put(`${this.baseUrl}${id}/`,body,{headers: this.headers}); 
+    // return this._posts;
+  }
+
+  deletePost(id:number){
+    return this.httpClient.delete(`${this.baseUrl}${id}/`,{headers: this.headers}); 
+    // return this._posts;
+  }
    
   ratePost(rate: number, postId: number){
     const body = JSON.stringify({stars:rate});

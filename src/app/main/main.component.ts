@@ -44,7 +44,12 @@ export class MainComponent implements OnInit{
   }
 
   deletedPost(post:any){
-    console.log('delete', post.title)
+   this.apiService.deletePost(post.id).subscribe(
+    data => {
+      console.log(data)
+    },
+    error => console.log(error)
+   );
   }
 
 }

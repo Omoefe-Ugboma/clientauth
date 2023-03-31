@@ -4,5 +4,8 @@
 
     <label>Post Description</label><br>
     <textarea type="text" formControlName="description"></textarea><br>
-    <button type="submit">SAVE</button>
+    <button type="submit">
+      <span *ngIf="id">Update Post</span>    
+      <span *ngIf="!id">Create Post</span>    
+    </button>
 </form>

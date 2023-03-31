@@ -9,7 +9,10 @@ import { ApiService } from '../../api.service';
 })
 export class PostFormComponent implements OnInit{
   postForm: any;
+  id = null;
+
   @Input() set post(val:any){
+    this.id = val.id;
     this.postForm = new FormGroup({
       title: new FormControl(val.title),
       description: new FormControl(val.description)
@@ -28,10 +31,18 @@ export class PostFormComponent implements OnInit{
 
   saveForm(){
     // console.log(this.postForm.value);
-    this.apiService.createPost(
-      this.postForm.value.title, this.postForm.value.description).subscribe(
-        result => console.log(result),
-        error => console.log(error)
-      );
+    if(this.id){
+      this.apiService.updatePost(this.id,
+        this.postForm.value.title, this.postForm.value.description).subscribe(
+          result => console.log(result),
+          error => console.log(error)
+        );
+    }else{
+      this.apiService.createPost(
+        this.postForm.value.title, this.postForm.value.description).subscribe(
+          result => console.log(result),
+          error => console.log(error)
+        );
+    }
   }
 }
