@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl} from '@angular/forms'
 import { ApiService } from '../../api.service';
 
@@ -10,6 +10,9 @@ import { ApiService } from '../../api.service';
 export class PostFormComponent implements OnInit{
   postForm: any;
   id = null;
+ 
+  @Output() postCreated = new EventEmitter<any>();
+  @Output() postUpdated = new EventEmitter<any>();
 
   @Input() set post(val:any){
     this.id = val.id;
@@ -34,13 +37,13 @@ export class PostFormComponent implements OnInit{
     if(this.id){
       this.apiService.updatePost(this.id,
         this.postForm.value.title, this.postForm.value.description).subscribe(
-          result => console.log(result),
+          (result: any) => this.postUpdated.emit(result),
           error => console.log(error)
         );
     }else{
       this.apiService.createPost(
         this.postForm.value.title, this.postForm.value.description).subscribe(
-          result => console.log(result),
+          (result: any) => this.postCreated.emit(result),
           error => console.log(error)
         );
     }

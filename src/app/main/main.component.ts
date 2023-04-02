@@ -46,10 +46,22 @@ export class MainComponent implements OnInit{
   deletedPost(post:any){
    this.apiService.deletePost(post.id).subscribe(
     data => {
-      console.log(data)
+      this.posts = this.posts.filter((pos: { id: any; }) => pos.id !== post.id);
     },
     error => console.log(error)
    );
   }
 
+  postCreated(post: any){
+    this.posts.push(post);
+    this.editedPost = null;
+  }
+
+  postUpdated(post: any){
+    const index = this.posts.findIndex((pos: { id: any; }) => pos.id === post.id);
+    if(index >= 0){
+      this.posts[index] = post;
+    }
+    this.editedPost = null;
+  }
 }
