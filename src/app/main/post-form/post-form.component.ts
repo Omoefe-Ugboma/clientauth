@@ -32,6 +32,14 @@ export class PostFormComponent implements OnInit{
     
   }
 
+  formDisabled(){
+    if(this.postForm.value.title.length && this.postForm.value.description.length){
+      return false;
+    }else{
+      return false;
+    }
+  }
+
   saveForm(){
     // console.log(this.postForm.value);
     if(this.id){
