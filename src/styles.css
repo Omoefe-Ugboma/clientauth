@@ -18,3 +18,10 @@ button:disabled {
     background-color:#444444;
     cursor: not-allowed;
 }
+
+input, textarea{
+    width: 100%;
+    font-size: 0.8em;
+    margin: 8px 0;
+    padding: 10px;
+}

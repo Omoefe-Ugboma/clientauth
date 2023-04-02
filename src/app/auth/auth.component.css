@@ -1,0 +1,6 @@
+input, textarea{
+    min-width: 20 auto;
+    font-size: 0.8em;
+    margin: 8px 0;
+    padding: 10px;
+}
