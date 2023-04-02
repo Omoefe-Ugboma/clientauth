@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/api.service';
+import { CookieService } from 'ngx-cookie-service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-main',
@@ -14,18 +16,26 @@ export class MainComponent implements OnInit{
   editedPost: any = null;
 
   constructor(
-    private apiService:ApiService
+    private apiService:ApiService,
+    private cookieService: CookieService,
+    private router: Router
   ){}
 
   ngOnInit(): void {
-    this.apiService.getPosts().subscribe(
-      data =>{
-        this.posts = data;
-      },
-      error => {
-        console.log(error);
-      }
-    );
+    
+    const mrToken = this.cookieService.get('mr-token');
+    if(!mrToken){
+      this.router.navigate(['/auth']);
+    }else{
+      this.apiService.getPosts().subscribe(
+        data =>{
+          this.posts = data;
+        },
+        error => {
+          console.log(error);
+        }
+      );
+    }
   }
 
   selectPost(post:any){
