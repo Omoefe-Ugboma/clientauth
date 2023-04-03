@@ -1,3 +1,4 @@
+<button (click)="logout()">Logout</button>
 <div class="layout">
     <app-post-list [posts]="posts" (selectedPost)="selectPost($event)" (deletedPost)="deletedPost($event)"
     (editedPost)="editPost($event)" (createNewPost)="createNewPost()"></app-post-list>
