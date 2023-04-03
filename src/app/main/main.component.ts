@@ -37,6 +37,12 @@ export class MainComponent implements OnInit{
       );
     }
   }
+  
+  logout(){
+    this.cookieService.delete('mr-token');
+    this.router.navigate(['/auth']);
+  }
+  
 
   selectPost(post:any){
    this.selectedPost = post;
