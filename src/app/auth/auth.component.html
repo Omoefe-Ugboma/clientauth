@@ -4,6 +4,10 @@
 
     <label>Password</label><br>
     <input type="password" formControlName="password"/><br>
-    <button type="submit">Login
+    <button type="submit">
+         <span *ngIf="!registerMode">Login</span>
+         <span *ngIf="registerMode">Register</span>
     </button>
 </form>
+<span *ngIf="!registerMode" (click)="registerMode = true">Don't have an account? Register here.</span>
+<span *ngIf="registerMode" (click)="registerMode = true">Already have an account? God to Login.</span>

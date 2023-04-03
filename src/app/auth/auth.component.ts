@@ -19,6 +19,8 @@ export class AuthComponent implements OnInit{
     password: new FormControl('')
    });
 
+registerMode = false;
+
 constructor(
   private apiService: ApiService,
   private cookieService: CookieService,
