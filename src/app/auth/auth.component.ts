@@ -16,7 +16,8 @@ export class AuthComponent implements OnInit{
 
   authForm = new FormGroup({
     username: new FormControl(''),
-    password: new FormControl('')
+    password: new FormControl(''),
+    filephoto: new FormControl('')
    });
 
 registerMode = false;
