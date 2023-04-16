@@ -35,6 +35,20 @@ constructor(
  }
 
  saveForm(){
+  if(!this.registerMode){
+     this.loginUser();
+  } else {
+    this.apiService.registerUser(this.authForm.value).subscribe(
+      result =>{
+        this.loginUser();
+      },
+      error => console.log(error)
+    );
+  }
+  // console.log(this.authForm.value)
+ }
+
+ loginUser(){
   this.apiService.loginUser(this.authForm.value).subscribe(
     (result: any) => {
       this.cookieService.set("mr-token", result.token);
@@ -42,7 +56,6 @@ constructor(
     },
     error => console.log(error)
   );
-  // console.log(this.authForm.value)
  }
 
 }
